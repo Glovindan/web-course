@@ -26,8 +26,6 @@ const Form = (): React.ReactElement => {
         <FormField
           className={styles.form}
           inputClassName={styles.formInput}
-          placeholderClassName={styles.formPlaceholder}
-          placeholderWrapperClassName={styles.formPlaceholderWrapper}
           name="login"
           type="text"
           placeholder="Логин"
@@ -37,8 +35,6 @@ const Form = (): React.ReactElement => {
         <FormField
           className={styles.form}
           inputClassName={styles.formInput}
-          placeholderClassName={styles.formPlaceholder}
-          placeholderWrapperClassName={styles.formPlaceholderWrapper}
           name="inputForm"
           type="password"
           placeholder="Пароль"
