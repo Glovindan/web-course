@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import Header from "../Header"
 import Footer from "../Footer";
+import {PersonPage} from "../../pages/"
 import {LoginPage} from "../../pages";
 import {ErrorPage} from "../../pages";
 
@@ -20,7 +21,7 @@ const App = (): React.ReactElement => {
           <Route
             exact={true}
             path={ROUTES.MAIN_PAGE}
-            component={() => <div>MainPage</div>}
+            component={PersonPage}
           />
           <Route path={ROUTES.LOGIN_PAGE} component={LoginPage} />
           <Route path="*" component={ErrorPage} />
