@@ -15,8 +15,8 @@ const Header = (): React.ReactElement => {
           <img src={Logo}/>
         </div>
         <div className={styles.menu}>
-          <MenuButton className={styles.menuButton} href="/ref" text="Кнопка1"/>
-          <MenuButton className={styles.menuButton} href="/sad" text="Кнопка2"/>
+          <MenuButton className={styles.menuButton} href="/" text="Main"/>
+          <MenuButton className={styles.menuButton} href="/login" text="Login"/>
         </div>
       </div>
       <hr/>
