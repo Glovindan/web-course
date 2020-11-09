@@ -9,5 +9,6 @@ declare const styles: {
   readonly about__wrapper: string;
   readonly about__name: string;
   readonly about__info: string;
+  readonly glvContainer: string;
 };
 export = styles;

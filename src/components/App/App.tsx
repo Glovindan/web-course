@@ -15,19 +15,27 @@ import styles from './App.module.pcss';
 const App = (): React.ReactElement => {
   return (
     <div className={styles.wrapper}>
-      <Header />
-      <BrowserRouter>
-        <Switch>
-          <Route
-            exact={true}
-            path={ROUTES.MAIN_PAGE}
-            component={PersonPage}
-          />
-          <Route path={ROUTES.LOGIN_PAGE} component={LoginPage} />
-          <Route path="*" component={ErrorPage} />
-        </Switch>
-      </BrowserRouter>
-      <Footer/>
+      <div className={styles.headerContainer}>
+        <Header />
+      </div>
+      
+      <div className={styles.mainContainer}>
+        <BrowserRouter>
+          <Switch>
+            <Route
+              exact={true}
+              path={ROUTES.MAIN_PAGE}
+              component={PersonPage}
+            />
+            <Route path={ROUTES.LOGIN_PAGE} component={LoginPage} />
+            <Route path="*" component={ErrorPage} />
+          </Switch>
+        </BrowserRouter>
+      </div>
+
+      <div className={styles.footerContainer}>
+        <Footer/>
+      </div>
     </div>
   );
 };

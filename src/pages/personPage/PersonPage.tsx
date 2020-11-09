@@ -13,15 +13,15 @@ import MenuButton from './components/MenuButton'
 const PersonPage = ():React.ReactElement => {
 
     const [container, setContainer] = useState(<PersonAction />);
-
+    
     return(
         <div className={styles.container}>
             <div className={styles.actions}>
                 <div className={styles.actions__wrapper}>
-                    <div className={styles.actions__avatar}>
+                    <div className={styles.actions__avatar + " " + styles.glvContainer}>
                         <Avatar src={AvatarImage} alt="avatar" />
-                    </div>
-                    <div className={styles.actions__menu}>
+                    </div> 
+                    <div className={styles.actions__menu + " " + styles.glvContainer} >
                         <ul>
                             <li>
                                 <MenuButton 
@@ -47,14 +47,14 @@ const PersonPage = ():React.ReactElement => {
                         </ul>
                     </div>
 
-                    <div className={styles.actions__container}>
+                    <div className={styles.actions__container + " " + styles.glvContainer}>
                         {container}
                     </div>
 
                 </div>
             </div>
             <div className={styles.about}>
-                <div className={styles.about__wrapper}>
+                <div className={styles.about__wrapper + " " + styles.glvContainer}>
                     <div className={styles.about__name}>
                         <Name firstName={'Garfield'} secondName={'The Cat'} status={'Hate mondays'} />
                     </div>
