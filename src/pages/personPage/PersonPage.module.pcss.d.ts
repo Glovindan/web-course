@@ -1,6 +1,7 @@
 declare const styles: {
   readonly container: string;
   readonly actions: string;
+  readonly glvContainer: string;
   readonly actions__wrapper: string;
   readonly actions__avatar: string;
   readonly actions__menu: string;

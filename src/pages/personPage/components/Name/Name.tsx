@@ -1,28 +1,31 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import styles from './Name.module.pcss';
 
 type NameProps = {
-    firstName: string;
-    secondName: string;
-    status: string;
+  firstName: string;
+  secondName: string;
+  status: string;
 }
 
-const Name = (props: NameProps):React.ReactElement => {
-    
-    const {firstName, secondName, status} = props;
-    const fullName = firstName + " " + secondName;
+const Name = (props: NameProps): React.ReactElement => {
+  const {firstName, secondName, status} = props;
 
-    return(
-        <div className={styles.container}>
-            <h1 className={styles.name}>
-                {fullName}
-            </h1>
-            <span className={styles.status}>
-                {status}
-            </span>
-        </div>
-    )
+  const fullName = useMemo(
+    () => firstName + " " + secondName,
+    [firstName, secondName]
+  );
+
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.name}>
+        {fullName}
+      </h1>
+      <span className={styles.status}>
+        {status}
+      </span>
+    </div>
+  )
 };
 
 export default Name;

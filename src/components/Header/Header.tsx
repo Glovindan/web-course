@@ -17,6 +17,7 @@ const Header = (): React.ReactElement => {
         <div className={styles.menu}>
           <MenuButton className={styles.menuButton} href="/" text="Main"/>
           <MenuButton className={styles.menuButton} href="/login" text="Login"/>
+          <MenuButton className={styles.menuButton} href="/dsads" text="Bruh"/>
         </div>
       </div>
       <hr/>

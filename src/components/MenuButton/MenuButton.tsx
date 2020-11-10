@@ -1,5 +1,7 @@
 import React from "react"
 
+import { NavLink } from "react-router-dom"
+
 type MenuButtonProps = {
   className?: string;
   href: string;
@@ -10,9 +12,9 @@ const MenuButton = (props: MenuButtonProps): React.ReactElement => {
   const {className, href, text} = props;
 
   return (
-    <a className={className} href={href}>
+    <NavLink className={className} to={href}>
       {text}
-    </a>
+    </NavLink>
   );
 };
 
