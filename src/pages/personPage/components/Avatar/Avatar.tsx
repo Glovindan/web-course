@@ -7,12 +7,12 @@ type AvatarProps = {
     alt: string;
 }
 
-const Avatar = (props: AvatarProps):React.ReactElement => {
-    
+const Avatar = (props: AvatarProps): React.ReactElement => {
+
     const {src, alt} = props;
 
     return(
-        <img 
+        <img
             className={styles.avatar}
             src={src}
             alt={alt}
