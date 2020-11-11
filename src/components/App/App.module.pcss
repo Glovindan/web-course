@@ -1,8 +1,12 @@
 $background-color: #f6f0ff;
+
 * {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  box-sizing: border-box;
+}
+
+body {
+  background: $background-color;
 }
 
 hr {
@@ -10,24 +14,11 @@ hr {
     box-shadow: -1.5px -1.5px 2px 0 rgba(0,0,0,0.2), 2px 2px 3px 0 rgba(255,255,255,1);
 }
 
-body {
-  background: $background-color;
-}
-
 .wrapper {
   min-height: 100vh;
-  padding: 0 5%;
+  width: 1100px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-.main-container {
-  display: block;
-  min-height: 80%;
-}
-.header-container {
-  height: 10%;
-}
-.footer-container {
-  height: 10%;
+  align-items: center;
 }

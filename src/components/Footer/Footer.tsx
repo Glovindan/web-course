@@ -1,13 +1,7 @@
 import React from 'react'
 import styles from './Footer.module.pcss'
 
-type FooterProps = {
-    classFooter?: string;
-    classContainer?: string;
-    classInfo?: string;
-}
-
-const Footer = (props: FooterProps): React.ReactElement => {
+const Footer = (): React.ReactElement => {
     return (
         <footer className={styles.wrapper}>
             <hr/>

@@ -1,7 +1,6 @@
 import React from "react"
 
 import MenuButton from '../MenuButton'
-
 import Logo from '../../assets/apple.png';
 
 import styles from './Header.module.pcss'

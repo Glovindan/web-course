@@ -16,11 +16,7 @@ const App = (): React.ReactElement => {
   return (
     <div className={styles.wrapper}>
       <BrowserRouter>
-      <div className={styles.headerContainer}>
         <Header />
-      </div>
-      <div className={styles.mainContainer}>
-        
           <Switch>
             <Route
               exact={true}
@@ -30,11 +26,7 @@ const App = (): React.ReactElement => {
             <Route path={ROUTES.LOGIN_PAGE} component={LoginPage} />
             <Route path="*" component={ErrorPage} />
           </Switch>
-      </div>
-
-      <div className={styles.footerContainer}>
         <Footer/>
-      </div>
       </BrowserRouter>
     </div>
   );
