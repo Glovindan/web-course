@@ -22,7 +22,7 @@ const Header = (): React.ReactElement => {
         </div>
         <div className={styles.menu}>
           <MenuButton className={styles.menuButton} href="/login" text="Login"/>
-          <MenuButton className={styles.menuButton} href="/dsads" text="Bruh"/>
+          <MenuButton className={styles.menuButton} href="/id0" text="MyPage"/>
         </div>
       </div>
       <hr/>

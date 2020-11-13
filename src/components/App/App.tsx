@@ -7,6 +7,7 @@ import Footer from "../Footer";
 import {PersonPage} from "../../pages/"
 import {LoginPage} from "../../pages";
 import {ErrorPage} from "../../pages";
+import {MyPage} from "../../pages";
 
 import {ROUTES} from "../../constants";
 
@@ -24,6 +25,7 @@ const App = (): React.ReactElement => {
               component={PersonPage}
             />
             <Route path={ROUTES.LOGIN_PAGE} component={LoginPage} />
+            <Route path={ROUTES.MY_PAGE} component={MyPage} />
             <Route path="*" component={ErrorPage} />
           </Switch>
         <Footer/>
