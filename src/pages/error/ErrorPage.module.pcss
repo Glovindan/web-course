@@ -1,27 +1,24 @@
 .wrapper {
-    display: block;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 auto;
     padding: 3px;
     border-radius: 16px;
+}
+
+.shadow {
+    border-radius: 14px;
     background-color: #efcef0;
     box-shadow: 12px 12px 12px rgba(0,0,0,0.7);
 }
 
 .container {
-    height: 100%;
-    display: block;
-    flex-direction: column;
     border-radius: 14px;
     box-shadow: inset 2px 2px 6px 0 rgba(0,0,0,0.5), inset -2px -2px 6px 0 rgba(255,255,255,0.83);
-    padding: px 200px;
-
     text-align: center;
     font-weight: bold;
     font-size: 24px;
-
     padding: 50px 200px;
     & img {
         display: block;

@@ -71,6 +71,7 @@ const PersonPage = (): React.ReactElement => {
               <div className={styles.about__wrapper}>
                   <div className={styles.about__name}>
                       <Name firstName={'Garfield'} secondName={'The Cat'} status={'Hate mondays'} />
+                      <hr />
                   </div>
                   <div className={styles.about__info}>
                       <Info subject={'Город'} info={'Ижевск'}/>
