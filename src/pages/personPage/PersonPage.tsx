@@ -5,7 +5,7 @@ import Avatar from '../../components/Avatar'
 import PersonAction from './components/PersonAction'
 import Name from './components/Name'
 import Info from './components/Info'
-import MenuButton from './components/MenuButton'
+import MenuButton from '../../components/MenuButton'
 
 import AvatarImage from '../../assets/avatar.jpg'
 
