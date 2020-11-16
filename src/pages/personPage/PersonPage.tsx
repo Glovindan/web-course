@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cn from 'clsx';
 
-import Avatar from './components/Avatar'
+import Avatar from '../../components/Avatar'
 import PersonAction from './components/PersonAction'
 import Name from './components/Name'
 import Info from './components/Info'

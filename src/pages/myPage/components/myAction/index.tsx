@@ -1,1 +1,1 @@
-export { default } from './myAction'
+export { default } from './MyAction'

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 
+
 import LogoutButton from "../LogoutButton";
-import MenuButton from '../MenuButton'
+import HeaderMenuButton from '../HeaderMenuButton'
+
 import Logo from '../../assets/apple.png';
 import Search from '../Search'
 
@@ -27,14 +29,15 @@ const Header = (): React.ReactElement => {
           </div>
           <Search />
         </div>
+
         <div>
           {contentType === 'logged' && <div className={styles.menu}>
                                       <LogoutButton className={styles.menuButton} onClick={logout} text="Logout"/>
-                                      <MenuButton className={styles.menuButton} href="/id0" text="MyPage"/>
+                                      <HeaderMenuButton className={styles.menuButton} href="/id0" text="MyPage"/>
                                       </div>}
           {contentType === 'unlogged' &&  <div className={styles.menu}>
-                                      <MenuButton className={styles.menuButton} href="/login" text="Login"/>
-                                      <MenuButton className={styles.menuButton} href="/" text="Main"/>
+                                      <HeaderMenuButton className={styles.menuButton} href="/login" text="Login"/>
+                                      <HeaderMenuButton className={styles.menuButton} href="/" text="Main"/>
                                       </div>}
         </div>
       </div>

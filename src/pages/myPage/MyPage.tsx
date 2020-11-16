@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 
-import Avatar from './components/Avatar'
-import MyAction from './components/myAction'
-import Name from './components/Name'
-import Info from './components/Info'
-import MenuButton from './components/MenuButton'
-
 import AvatarImage from '../../assets/myAvatar.jpg'
+
+import Avatar from '../../components/Avatar'
+import MyAction from './components/MyAction'
+import Name from './components/Name'
+import MyInfo from './components/MyInfo'
+import MenuButton from '../../components/MenuButton'
 
 import styles from "./MyPage.module.pcss"
 
@@ -59,8 +59,8 @@ const MyPage = (): React.ReactElement => {
   
                     <div className={styles.actions__container}>
                         {contentType === 'actions' && <MyAction />}
-                        {contentType === 'friends' && <Info subject={'Город'} />}
-                        {contentType === 'subscriptions' && <Info subject={'Город'} />}
+                        {contentType === 'friends' && <MyInfo subject={'test'} />}
+                        {contentType === 'subscriptions' && <MyInfo subject={'test'} />}
                     </div>
   
                 </div>
@@ -72,9 +72,9 @@ const MyPage = (): React.ReactElement => {
                         <hr />
                     </div>
                     <div className={styles.about__info}>
-                        <Info subject={'Город'} />
-                        <Info subject={'Образование'}/>
-                        <Info subject={'О себе'} />
+                        <MyInfo subject={'Город'} />
+                        <MyInfo subject={'Образование'}/>
+                        <MyInfo subject={'О себе'} />
                     </div>
                 </div>
             </div>

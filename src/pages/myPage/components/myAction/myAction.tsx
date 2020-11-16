@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PersonButton from '../PersonButton'
+import ActionButton from '../../../../components/ActionButton'
 
-import styles from './myAction.module.pcss';
+import styles from './MyAction.module.pcss';
 
 const data = [
   {
@@ -28,7 +28,7 @@ const myAction = ():React.ReactElement => {
         <ul className={styles.person__action}>
           {data.map((el, idx) => (
             <li key={idx}>
-              <PersonButton 
+              <ActionButton 
                 name={el.name} 
                 text={el.text} 
                 onClick={el.onClick} 
