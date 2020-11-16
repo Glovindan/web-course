@@ -14,13 +14,16 @@ import {ROUTES} from "../../constants";
 import styles from './App.module.pcss';
 
 const App = (): React.ReactElement => {
+  localStorage.setItem('login','vasya');
+  localStorage.setItem('password','123');
+  
   return (
     <div className={styles.wrapper}>
       <BrowserRouter>
         <Header />
           <Switch>
             <Route
-              exact={true}
+              exact={true}  
               path={ROUTES.MAIN_PAGE}
               component={PersonPage}
             />
