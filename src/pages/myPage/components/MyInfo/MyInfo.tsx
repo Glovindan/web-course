@@ -3,7 +3,7 @@ import cn from "clsx"
 
 import EditImage from '../../../../assets/edit.png'
 
-import styles from './Info.module.pcss';
+import styles from './MyInfo.module.pcss';
 
 type InfoProps = {
     subject: string;
@@ -16,7 +16,7 @@ const Info = (props: InfoProps):React.ReactElement => {
     const [info, setInfo] = useState<String>('[ДАННЫЕ УДАЛЕНЫ]');
     const [editMode, setEditMode] = useState<boolean>(false);
 
-    const spanInfo = useRef<HTMLElement>(document.createElement("span"));
+    const spanInfo = useRef<HTMLElement>(document.createElement('span'));
 
     const handleClickActionButton = () => {
         if (editMode) {
@@ -24,7 +24,7 @@ const Info = (props: InfoProps):React.ReactElement => {
             
         } else {
             spanInfo.current.focus();
-            spanInfo.current.setAttribute('contentEditable', "true");
+            spanInfo.current.setAttribute('contentEditable', 'true');
         }
         setEditMode(!editMode);
     };
