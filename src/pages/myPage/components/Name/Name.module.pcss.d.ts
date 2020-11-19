@@ -1,6 +1,6 @@
 declare const styles: {
-  readonly wrapper: string;
-  readonly shadow: string;
   readonly container: string;
+  readonly name: string;
+  readonly status: string;
 };
 export = styles;

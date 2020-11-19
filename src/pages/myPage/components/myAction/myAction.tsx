@@ -2,32 +2,27 @@ import React from 'react';
 
 import ActionButton from '../../../../components/ActionButton'
 
-import styles from './PersonAction.module.pcss';
+import styles from './MyAction.module.pcss';
 
 const data = [
   {
-    name: 'sendMessage',
-    text: 'Написать сообщение',
+    name: 'changeAvatar',
+    text: 'Поменять аватарку',
     onClick: () => console.log('clicked on button'),
   },
   {
-    name: 'like',
-    text: 'Поставить лайк',
+    name: 'myMessage',
+    text: 'Личные сообщения',
     onClick: () => console.log('clicked on button'),
   },
   {
-    name: 'addToFriends',
-    text: 'Добавить в друзья',
-    onClick: () => console.log('clicked on button'),
-  },
-  {
-    name: 'ban',
-    text: 'Заблокировать пользователя',
+    name: 'deletePage',
+    text: 'Удалить страницу',
     onClick: () => console.log('clicked on button'),
   },
 ];
 
-const PersonAction = ():React.ReactElement => {
+const myAction = ():React.ReactElement => {
 
     return (
         <ul className={styles.person__action}>
@@ -44,4 +39,4 @@ const PersonAction = ():React.ReactElement => {
     )
 };
 
-export default PersonAction;
+export default myAction;

@@ -1,5 +1,4 @@
 import React from "react"
-
 import { NavLink } from "react-router-dom"
 
 type MenuButtonProps = {
@@ -8,7 +7,7 @@ type MenuButtonProps = {
   text: string;
 }
 
-const MenuButton = (props: MenuButtonProps): React.ReactElement => {
+const HeaderMenuButton = (props: MenuButtonProps): React.ReactElement => {
   const {className, href, text} = props;
 
   return (
@@ -18,4 +17,4 @@ const MenuButton = (props: MenuButtonProps): React.ReactElement => {
   );
 };
 
-export default MenuButton;
+export default HeaderMenuButton;

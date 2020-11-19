@@ -1,40 +1,65 @@
 import React from "react";
 import {hot} from 'react-hot-loader/root';
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter, Switch, Redirect, Route} from "react-router-dom";
 
 import Header from "../Header"
 import Footer from "../Footer";
-import {PersonPage} from "../../pages/"
-import {LoginPage} from "../../pages";
-import {ErrorPage} from "../../pages";
+import {
+  MyPage,
+  PersonPage,
+  LoginPage,
+  ErrorPage
+} from "../../pages";
 
 import {ROUTES} from "../../constants";
 
 import styles from './App.module.pcss';
 
 const App = (): React.ReactElement => {
+  localStorage.setItem('login', 'vasya');
+  localStorage.setItem('password', '123');
+
+  const isUserAuthorized = localStorage.getItem('logged');
+
   return (
     <div className={styles.wrapper}>
       <BrowserRouter>
-      <div className={styles.headerContainer}>
-        <Header />
-      </div>
-      <div className={styles.mainContainer}>
-        
-          <Switch>
+        <Header/>
+        <Switch>
+          {isUserAuthorized &&
             <Route
               exact={true}
               path={ROUTES.MAIN_PAGE}
               component={PersonPage}
             />
-            <Route path={ROUTES.LOGIN_PAGE} component={LoginPage} />
-            <Route path="*" component={ErrorPage} />
-          </Switch>
-      </div>
-
-      <div className={styles.footerContainer}>
+          }
+          {isUserAuthorized &&
+            <Route
+              path={ROUTES.MY_PAGE}
+              component={MyPage}
+            />
+          }
+          {!isUserAuthorized &&
+            <Route
+              path={ROUTES.LOGIN_PAGE}
+              component={LoginPage}
+            />
+          }
+          {!isUserAuthorized &&
+            <Redirect
+              to={ROUTES.LOGIN_PAGE}
+              from={ROUTES.MAIN_PAGE}
+            />
+          }
+          {!isUserAuthorized &&
+            <Redirect
+              to={ROUTES.LOGIN_PAGE}
+              from={ROUTES.MY_PAGE}
+            />
+          }
+          <Route path="*" component={ErrorPage} />
+        </Switch>
         <Footer/>
-      </div>
       </BrowserRouter>
     </div>
   );

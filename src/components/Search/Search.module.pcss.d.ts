@@ -1,6 +1,5 @@
 declare const styles: {
-  readonly wrapper: string;
-  readonly shadow: string;
   readonly container: string;
+  readonly inputSearch: string;
 };
 export = styles;

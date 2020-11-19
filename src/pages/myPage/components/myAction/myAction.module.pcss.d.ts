@@ -1,4 +1,4 @@
 declare const styles: {
-  readonly wrapper: string;
+  readonly person__action: string;
 };
 export = styles;

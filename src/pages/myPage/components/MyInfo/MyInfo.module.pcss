@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.subject {
+    margin: 5px 0;
+    display: block;
+    font-weight: 800;
+    width: 25%;
+}
+
+.info {
+    margin-right: 10px;
+    width: 75%;
+}
+
+.info[contentEditable] {
+    border-bottom: 3px solid black;
+    background-color: white;
+}
+
+.editButton {
+    border-radius: 25%;
+    padding: 0;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+
+.pressed {
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.3), -4px -4px 8px 0 rgba(255,255,255,0.83), inset 2px 2px 6px 0 rgba(0,0,0,0), inset -2px -2px 6px 0 rgba(255,255,255,0);
+  
+}
+
+.editImage {
+    width: 23px;
+    height: 23px;
+}
