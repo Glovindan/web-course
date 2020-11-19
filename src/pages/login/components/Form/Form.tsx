@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 
-import styles from './Form.module.pcss';
 import FormField from "../FormField"
+
+import styles from './Form.module.pcss';
+
 const Form = (): React.ReactElement => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -17,8 +19,9 @@ const Form = (): React.ReactElement => {
   const handleSubmit = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
     ev.stopPropagation();
-    if(login == localStorage.getItem('login') && password == localStorage.getItem('password')) {
-      localStorage.setItem('logged','logged');
+    if(login === localStorage.getItem('login') && password === localStorage.getItem('password')) {
+      localStorage.setItem('logged', 'logged');
+      window.location.href = '/';
     }
   };
 

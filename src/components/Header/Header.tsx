@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { NavLink } from "react-router-dom"
 
 
@@ -9,15 +9,16 @@ import Logo from '../../assets/apple.png';
 import Search from '../Search'
 
 import styles from './Header.module.pcss'
-import { container } from "../Search/Search.module.pcss";
-import { render } from "react-dom";
 
 
 const Header = (): React.ReactElement => {
   const [contentType, setContentType] = useState(localStorage.getItem('logged'));
+
   const logout = () => {
-    localStorage.setItem('logged','unlogged');
-  }
+    localStorage.removeItem('logged');
+    window.location.href = '/login'
+  };
+
   return (
     <header className={styles.wrapper}>
       <div className={styles.container}>
@@ -31,11 +32,15 @@ const Header = (): React.ReactElement => {
         </div>
 
         <div>
+          {contentType === null &&  <div className={styles.menu}>
+                                      <HeaderMenuButton className={styles.menuButton} href="/login" text="Login"/>
+                                      <HeaderMenuButton className={styles.menuButton} href="/" text="Main"/>
+                                      </div>}
           {contentType === 'logged' && <div className={styles.menu}>
                                       <LogoutButton className={styles.menuButton} onClick={logout} text="Logout"/>
                                       <HeaderMenuButton className={styles.menuButton} href="/id0" text="MyPage"/>
                                       </div>}
-          {contentType === 'unlogged' &&  <div className={styles.menu}>
+          {contentType == 'unlogged' &&  <div className={styles.menu}>
                                       <HeaderMenuButton className={styles.menuButton} href="/login" text="Login"/>
                                       <HeaderMenuButton className={styles.menuButton} href="/" text="Main"/>
                                       </div>}
