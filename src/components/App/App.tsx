@@ -8,7 +8,8 @@ import {
   MyPage,
   PersonPage,
   LoginPage,
-  ErrorPage
+  ErrorPage,
+  MessagesPage,
 } from "../../pages";
 
 import {ROUTES} from "../../constants";
@@ -37,6 +38,12 @@ const App = (): React.ReactElement => {
             <Route
               path={ROUTES.MY_PAGE}
               component={MyPage}
+            />
+          }
+          {isUserAuthorized &&
+            <Route
+              path={ROUTES.MESSAGES}
+              component={MessagesPage}
             />
           }
           {!isUserAuthorized &&
