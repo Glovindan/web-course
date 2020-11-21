@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 import messageAvatar from "../../assets/messageAvatar.png"
 
-import Dialog from "./components/dialog"
+import DialogList from "./components/dialogList"
 
 import styles from "./Messages.module.pcss"
 
@@ -33,7 +33,7 @@ const Messages = (): React.ReactElement => {
           {dialogues.map((el, idx) => (
             <li className={styles.dialog} key={idx}>
               <NavLink to={"/id0"}>
-                <Dialog
+                <DialogList
                   avatarPicture={el.avatarPicture}
                   personName={el.personName}
                   lastMessage={el.lastMessage}

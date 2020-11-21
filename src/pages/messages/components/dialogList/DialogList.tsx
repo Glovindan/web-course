@@ -1,15 +1,15 @@
 import React from "react";
 
-import styles from "./Dialog.module.pcss";
+import styles from "./DialogList.module.pcss";
 
-type DialogProps = {
+type DialogListProps = {
     avatarPicture: string;
     personName: string;
     lastMessage: string;
     onChange?: () => void;
 }
 
-const Dialog = (props: DialogProps):React.ReactElement => {
+const DialogList = (props: DialogListProps):React.ReactElement => {
     
     const {avatarPicture, personName, lastMessage, onChange} = props;
     
@@ -34,4 +34,4 @@ const Dialog = (props: DialogProps):React.ReactElement => {
     )
 };
 
-export default Dialog;
+export default DialogList;
