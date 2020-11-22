@@ -1,3 +1,4 @@
+import { string } from 'prop-types';
 import React, {useState} from 'react';
 
 import FormField from "../FormField"
@@ -19,9 +20,19 @@ const Form = (): React.ReactElement => {
   const handleSubmit = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
     ev.stopPropagation();
-    if(login === localStorage.getItem('login') && password === localStorage.getItem('password')) {
-      localStorage.setItem('logged', 'logged');
-      window.location.href = '/';
+
+    //Здесь должны быть запросы в бд
+    if(localStorage.getItem(login) ) {
+      var userData = localStorage.getItem(login);
+      if (typeof userData === 'string') 
+        var userPassword = JSON.parse(userData).password; 
+      
+      if(userPassword === password) {
+        localStorage.setItem('logged', 'logged');
+        localStorage.setItem('login', login);
+        localStorage.setItem('password', password);
+        window.location.href = '/';
+      }
     }
   };
 

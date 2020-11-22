@@ -11,6 +11,7 @@ import {
   ErrorPage,
   MessagesPage,
   DialogPage,
+  RegistrationPage
 } from "../../pages";
 
 import {ROUTES} from "../../constants";
@@ -18,8 +19,6 @@ import {ROUTES} from "../../constants";
 import styles from './App.module.pcss';
 
 const App = (): React.ReactElement => {
-  localStorage.setItem('login', 'vasya');
-  localStorage.setItem('password', '123');
 
   const isUserAuthorized = localStorage.getItem('logged');
 
@@ -57,6 +56,12 @@ const App = (): React.ReactElement => {
             <Route
               path={ROUTES.LOGIN_PAGE}
               component={LoginPage}
+            />
+          }
+          {!isUserAuthorized &&
+            <Route
+              path={ROUTES.REGISTRATION_PAGE}
+              component={RegistrationPage}
             />
           }
           {!isUserAuthorized &&
