@@ -32,7 +32,7 @@ const Messages = (): React.ReactElement => {
         <ul className={styles.list}>
           {dialogues.map((el, idx) => (
             <li className={styles.dialog} key={idx}>
-              <NavLink to={"/id0"}>
+              <NavLink to={"/dialog"}>
                 <DialogList
                   avatarPicture={el.avatarPicture}
                   personName={el.personName}

@@ -10,6 +10,7 @@ import {
   LoginPage,
   ErrorPage,
   MessagesPage,
+  DialogPage,
 } from "../../pages";
 
 import {ROUTES} from "../../constants";
@@ -42,8 +43,14 @@ const App = (): React.ReactElement => {
           }
           {isUserAuthorized &&
             <Route
-              path={ROUTES.MESSAGES}
+              path={ROUTES.MESSAGES_PAGE}
               component={MessagesPage}
+            />
+          }
+          {isUserAuthorized &&
+            <Route
+              path={ROUTES.DIALOG_PAGE}
+              component={DialogPage}
             />
           }
           {!isUserAuthorized &&
