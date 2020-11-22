@@ -53,7 +53,7 @@ const text = [
 		me: true
 	},
 	{
-		text: "Eu reprehenderit quis sint est exercitation.",
+		text: "demasscult.fun",
 		me: false
 	},
 
