@@ -12,10 +12,12 @@ import styles from './Header.module.pcss'
 
 
 const Header = (): React.ReactElement => {
-  const [contentType, setContentType] = useState(localStorage.getItem('logged'));
+  const contentType = localStorage.getItem('logged');
 
   const logout = () => {
     localStorage.removeItem('logged');
+    localStorage.removeItem('login');
+    localStorage.removeItem('password');
     window.location.href = '/login'
   };
 
@@ -32,15 +34,11 @@ const Header = (): React.ReactElement => {
         </div>
 
         <div>
-          {contentType === null &&  <div className={styles.menu}>
-                                      <HeaderMenuButton className={styles.menuButton} href="/login" text="Login"/>
-                                      <HeaderMenuButton className={styles.menuButton} href="/" text="Main"/>
-                                      </div>}
-          {contentType === 'logged' && <div className={styles.menu}>
+          {(contentType === 'logged') && <div className={styles.menu}>
                                       <LogoutButton className={styles.menuButton} onClick={logout} text="Logout"/>
                                       <HeaderMenuButton className={styles.menuButton} href="/id0" text="MyPage"/>
                                       </div>}
-          {contentType == 'unlogged' &&  <div className={styles.menu}>
+          {contentType === null &&  <div className={styles.menu}>
                                       <HeaderMenuButton className={styles.menuButton} href="/login" text="Login"/>
                                       <HeaderMenuButton className={styles.menuButton} href="/" text="Main"/>
                                       </div>}

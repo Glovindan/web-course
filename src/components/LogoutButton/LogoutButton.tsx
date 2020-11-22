@@ -1,21 +1,19 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 
-type MenuButtonProps = {
+type LogoutButtonProps = {
   className?: string;
   text: string;
   onClick: () => void;
 }
 
-const LogoutButton = (props: MenuButtonProps): React.ReactElement => {
+const LogoutButton = (props: LogoutButtonProps): React.ReactElement => {
   const {className, text, onClick} = props;
 
     return(
-        <button
-            className={className} 
-            type="button"
-            onClick={onClick}
-        >{text}</button>
+        <NavLink className={className} onClick={onClick} to="#">
+          {text}
+        </NavLink>
     )
 };
 
