@@ -40,6 +40,7 @@ const Header = (): React.ReactElement => {
                                       </div>}
           {contentType === null &&  <div className={styles.menu}>
                                       <HeaderMenuButton className={styles.menuButton} href="/login" text="Login"/>
+                                      <HeaderMenuButton className={styles.menuButton} href="/registration" text="Registration"/>
                                       <HeaderMenuButton className={styles.menuButton} href="/" text="Main"/>
                                       </div>}
         </div>
