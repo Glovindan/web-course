@@ -13,7 +13,7 @@ const data = [
   {
     name: 'myMessage',
     text: 'Личные сообщения',
-    onClick: () => console.log('clicked on button'),
+    onClick: () => document.location.href = "messages",
   },
   {
     name: 'deletePage',
@@ -27,8 +27,8 @@ const myAction = ():React.ReactElement => {
     return (
         <ul className={styles.person__action}>
           {data.map((el, idx) => (
-            <li key={idx}>
-              <ActionButton 
+            <li className={styles.actionButton} key={idx}>
+              <ActionButton
                 name={el.name} 
                 text={el.text} 
                 onClick={el.onClick} 

@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px 10%;
+    height: 100px;
+    border-radius: 20px;
+    background-color:#efcef0;
+    box-shadow: inset -2px -2px 6px 0 rgba(0,0,0,0.2), inset 2px 2px 6px 0 rgba(255,255,255,0.83);
+    transition: 0.2s;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 4px 4px 12px 0 rgba(0,0,0,0), -4px -4px 12px 0 rgba(255,255,255,0), inset 2px 2px 6px 0 rgba(0,0,0,0), inset -2px -2px 6px 0 rgba(255,255,255,0);
+    }
+
+    &:active {
+        box-shadow: 4px 4px 12px 0 rgba(0,0,0,0), -4px -4px 12px 0 rgba(255,255,255,0), inset 2px 2px 6px 0 rgba(0,0,0,0.5), inset -2px -2px 6px 0 rgba(255,255,255,0.83);
+    }
+}
+
+.avatar {
+    width: 9%;
+    height: 75%;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    padding: 0 10px;
+    width: 75%;
+    height: 75%;
+}
+
+.name {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.lastMessage {
+
+}
