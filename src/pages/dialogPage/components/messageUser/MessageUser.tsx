@@ -3,17 +3,17 @@ import React from "react";
 import styles from "./MessageUser.module.pcss";
 
 type MessageUserProps = {
-
+	text: string,
 }
 
 const MessageUser = (props: MessageUserProps):React.ReactElement => {
 
-const {} = props;
+const {text} = props;
 
 	return(
 		<div className={styles.wrapper}>
 			<div className={styles.container}>
-				qwe
+				{text}
 			</div>
 		</div>
 	)

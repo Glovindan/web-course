@@ -1,7 +1,7 @@
 declare const styles: {
   readonly wrapper: string;
   readonly container: string;
-  readonly list: string;
-  readonly dialog: string;
+  readonly ul: string;
+  readonly li: string;
 };
 export = styles;

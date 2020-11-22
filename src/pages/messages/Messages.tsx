@@ -1,5 +1,6 @@
+import { flowRight } from "lodash";
 import React from "react";
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import messageAvatar from "../../assets/messageAvatar.png"
 
@@ -29,16 +30,22 @@ const Messages = (): React.ReactElement => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <ul className={styles.list}>
+        <ul className={styles.ul}>
           {dialogues.map((el, idx) => (
-            <li className={styles.dialog} key={idx}>
-              <NavLink to={"/dialog"}>
+            <li className={styles.li} key={idx}>
+              <Link to={{
+                  pathname: "/dialog",
+                  state: {userAvatarImage: el.avatarPicture,
+                          userName: el.personName,
+                  }
+                }}
+              >
                 <DialogList
                   avatarPicture={el.avatarPicture}
                   personName={el.personName}
                   lastMessage={el.lastMessage}
                 />
-              </NavLink>
+              </Link>
             </li>
           ))}
         </ul>
