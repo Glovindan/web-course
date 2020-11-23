@@ -8,7 +8,7 @@ type FormFieldProps = {
   type: string;
   placeholder: string;
   value: string;
-  onChange: (val: string, name: string) => void;
+  onChange: (val: string, name?: string) => void;
 
   className?: string;
   inputClassName?: string;

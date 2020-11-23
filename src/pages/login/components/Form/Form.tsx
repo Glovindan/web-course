@@ -1,7 +1,7 @@
 import { string } from 'prop-types';
 import React, {useState} from 'react';
 
-import FormField from "../FormField"
+import FormField from "../../../../components/FormField"
 
 import styles from './Form.module.pcss';
 

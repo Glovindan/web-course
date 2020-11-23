@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import FormField from "../FormField"
+import FormField from "../../../../components/FormField"
 
 import styles from './Form.module.pcss';
 
@@ -11,7 +11,7 @@ const Form = (): React.ReactElement => {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
 
-  const handleChangeInput = (value: string, name: string) => {
+  const handleChangeInput = (value: string, name?: string) => {
     switch (name) {
       case 'name':
         setName(value);
