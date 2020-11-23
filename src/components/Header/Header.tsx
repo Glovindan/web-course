@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { NavLink } from "react-router-dom"
 
-
-import LogoutButton from "../LogoutButton";
 import HeaderMenuButton from '../HeaderMenuButton'
 
 import Logo from '../../assets/apple.png';
@@ -35,7 +33,7 @@ const Header = (): React.ReactElement => {
 
         <div>
           {(contentType === 'logged') && <div className={styles.menu}>
-                                      <LogoutButton className={styles.menuButton} onClick={logout} text="Logout"/>
+                                      <HeaderMenuButton className={styles.menuButton} href='#' onClick={logout} text="Logout"/>
                                       <HeaderMenuButton className={styles.menuButton} href="/id0" text="MyPage"/>
                                       </div>}
           {contentType === null &&  <div className={styles.menu}>
