@@ -5,13 +5,14 @@ type MenuButtonProps = {
   className?: string;
   href: string;
   text: string;
+  onClick?: () => void;
 }
 
 const HeaderMenuButton = (props: MenuButtonProps): React.ReactElement => {
-  const {className, href, text} = props;
+  const {className, href, text, onClick} = props;
 
   return (
-    <NavLink className={className} to={href}>
+    <NavLink className={className} to={href} onClick={onClick}>
       {text}
     </NavLink>
   );
