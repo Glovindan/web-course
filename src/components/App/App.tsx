@@ -17,53 +17,54 @@ import {
 import {ROUTES} from "../../constants";
 
 import styles from './App.module.pcss';
+import CustomRoute from "../CustomRoute";
 
 const App = (): React.ReactElement => {
 
-  const isUserAuthorized = localStorage.getItem('logged');
+  const isUserAuthorized = Boolean(localStorage.getItem('logged'));
 
   return (
     <div className={styles.wrapper}>
       <BrowserRouter>
         <Header/>
         <Switch>
-          {isUserAuthorized &&
-            <Route
-              exact={true}
-              path={ROUTES.MAIN_PAGE}
-              component={PersonPage}
-            />
-          }
-          {isUserAuthorized &&
-            <Route
-              path={ROUTES.MY_PAGE}
-              component={MyPage}
-            />
-          }
-          {isUserAuthorized &&
-            <Route
-              path={ROUTES.MESSAGES_PAGE}
-              component={MessagesPage}
-            />
-          }
-          {isUserAuthorized &&
-            <Route
-              path={ROUTES.DIALOG_PAGE}
-              component={DialogPage}
-            />
-          }
-          {!isUserAuthorized &&
-            <Route
-              path={ROUTES.LOGIN_PAGE}
-              component={LoginPage}
-            />
-          }
-          {!isUserAuthorized &&
-            <Route
-              path={ROUTES.REGISTRATION_PAGE}
-              component={RegistrationPage}
-            />
-          }
+          <CustomRoute
+            isPublic={false}
+            accessed={isUserAuthorized}
+            path={ROUTES.MY_PAGE}
+            component={MyPage}
+          />
+          <CustomRoute
+            isPublic={false}
+            accessed={isUserAuthorized}
+            exact={true}
+            path={ROUTES.MAIN_PAGE}
+            component={PersonPage}
+          />
+          <CustomRoute
+            isPublic={false}
+            accessed={isUserAuthorized}
+            path={ROUTES.MESSAGES_PAGE}
+            component={MessagesPage}
+          />
+          <CustomRoute
+            isPublic={false}
+            accessed={isUserAuthorized}
+            path={ROUTES.DIALOG_PAGE}
+            component={DialogPage}
+          />
+          <CustomRoute
+            isPublic={true}
+            accessed={!isUserAuthorized}
+            path={ROUTES.LOGIN_PAGE}
+            component={LoginPage}
+          />
+          <CustomRoute
+            isPublic={true}
+            accessed={!isUserAuthorized}
+            path={ROUTES.REGISTRATION_PAGE}
+            component={RegistrationPage}
+          />
           {!isUserAuthorized &&
             <Redirect
               to={ROUTES.LOGIN_PAGE}
