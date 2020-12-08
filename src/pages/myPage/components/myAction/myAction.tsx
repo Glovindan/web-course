@@ -3,22 +3,21 @@ import React from 'react';
 import ActionButton from '../../../../components/ActionButton'
 
 import styles from './MyAction.module.pcss';
+import LinkAsButton from "../../../../components/LinkAsButton";
+import {ROUTES} from "../../../../constants";
 
 const data = [
   {
-    name: 'changeAvatar',
     text: 'Поменять аватарку',
-    onClick: () => console.log('clicked on button'),
+    href: '#',
   },
   {
-    name: 'myMessage',
     text: 'Личные сообщения',
-    onClick: () => document.location.href = "messages",
+    href: ROUTES.MESSAGES_PAGE,
   },
   {
-    name: 'deletePage',
     text: 'Удалить страницу',
-    onClick: () => console.log('clicked on button'),
+    href: '#',
   },
 ];
 
@@ -28,11 +27,9 @@ const myAction = ():React.ReactElement => {
         <ul className={styles.person__action}>
           {data.map((el, idx) => (
             <li className={styles.actionButton} key={idx}>
-              <ActionButton
-                name={el.name} 
-                text={el.text} 
-                onClick={el.onClick} 
-              />
+              <LinkAsButton to={el.href} className={styles.action__button}>
+                {el.text}
+              </LinkAsButton>
             </li>
           ))}
         </ul>

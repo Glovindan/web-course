@@ -7,13 +7,14 @@ import styles from './MyInfo.module.pcss';
 
 type InfoProps = {
     subject: string;
+    text: string
 }
 
 const Info = (props: InfoProps):React.ReactElement => {
-    
-    const {subject } = props;
 
-    const [info, setInfo] = useState<String>('[ДАННЫЕ УДАЛЕНЫ]');
+    const { subject, text } = props;
+
+    const [info, setInfo] = useState<String>(text);
     const [editMode, setEditMode] = useState<boolean>(false);
 
     const spanInfo = useRef<HTMLElement>(document.createElement('span'));
@@ -21,7 +22,7 @@ const Info = (props: InfoProps):React.ReactElement => {
     const handleClickActionButton = () => {
         if (editMode) {
             spanInfo.current.removeAttribute('contentEditable');
-            
+
         } else {
             spanInfo.current.focus();
             spanInfo.current.setAttribute('contentEditable', 'true');
