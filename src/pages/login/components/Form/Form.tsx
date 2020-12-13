@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 
 import FormField from "../../../../components/FormField"
 
+import { users } from '../../../../mocks/users.json';
+
 import styles from './Form.module.pcss';
 
 const Form = (): React.ReactElement => {
@@ -24,14 +26,28 @@ const Form = (): React.ReactElement => {
     //Здесь должны быть запросы в бд
     if(localStorage.getItem(login) ) {
       var userData = localStorage.getItem(login);
+
+      let idNumber;
+      users.forEach((user: { login: string, id: number}) => {
+        if (user.login == login) {
+          idNumber = user.id
+        }
+      })
+
       if (typeof userData === 'string') 
         var userPassword = JSON.parse(userData).password; 
       
-      if(userPassword === password) {
+      if (userPassword === password) {
         localStorage.setItem('logged', 'logged');
         localStorage.setItem('login', login);
         localStorage.setItem('password', password);
-        window.location.href = '/';
+
+        if (idNumber > -1) {
+          localStorage.setItem('id', idNumber);
+          window.location.href = '/id' + idNumber;
+        } else {
+          window.location.href = '/';
+        }
       }
     }
   };

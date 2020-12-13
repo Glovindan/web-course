@@ -23,8 +23,8 @@ const MyPage = (): React.ReactElement => {
 
   const handleClickActionButton = (actionType: ActionType) =>
     () => setContentType(actionType);
-
-  const me = users[0];
+  
+  const me = users[localStorage.getItem("id")];
 
   const data = [
     {

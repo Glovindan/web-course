@@ -11,6 +11,7 @@ import styles from './Header.module.pcss'
 
 const Header = (): React.ReactElement => {
   const contentType = localStorage.getItem('logged');
+  const myPageRoute = Number(localStorage.getItem('id'));
 
   const logout = () => {
     localStorage.removeItem('logged');
@@ -34,7 +35,7 @@ const Header = (): React.ReactElement => {
         <div>
           {(contentType === 'logged') && <div className={styles.menu}>
                                       <HeaderMenuButton className={styles.menuButton} href='#' onClick={logout} text="Logout"/>
-                                      <HeaderMenuButton className={styles.menuButton} href="/id0" text="MyPage"/>
+                                      <HeaderMenuButton className={styles.menuButton} href={"/id" + myPageRoute} text="MyPage"/>
                                       </div>}
           {contentType === null &&  <div className={styles.menu}>
                                       <HeaderMenuButton className={styles.menuButton} href="/login" text="Login"/>
