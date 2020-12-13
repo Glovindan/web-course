@@ -30,21 +30,22 @@
     },
     {
       "id": 2,
+      "login": "vasya what ?",
       "firstName": "Garfield",
       "secondName": "The Cat",
       "status": "Hates mondays",
       "headers": [
         {
           "name": "city",
-          "text": "[ДАННЫЕ УДАЛЕНЫ]"
+          "text": "Ижевск"
         },
         {
           "name": "education",
-          "text": "[ДАННЫЕ УДАЛЕНЫ]"
+          "text": "УдГУ"
         },
         {
           "name": "about",
-          "text": "[ДАННЫЕ УДАЛЕНЫ]"
+          "text": "Простой рыжий кот 🐈"
         }
       ],
       "avatar": "/assets/media/avatar.80432e31.jpg",

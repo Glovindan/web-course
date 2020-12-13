@@ -1,7 +1,5 @@
 import React, {useState} from "react"
 
-import AvatarImage from '../../assets/myAvatar.jpg'
-
 import Avatar from '../../components/Avatar'
 import MyAction from './components/MyAction'
 import Name from './components/Name'
