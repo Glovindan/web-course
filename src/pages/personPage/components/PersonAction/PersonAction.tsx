@@ -32,7 +32,7 @@ const PersonAction = ():React.ReactElement => {
     return (
         <ul className={styles.person__action}>
           {data.map((el, idx) => (
-            <li key={idx}>
+            <li className={styles.actionButton} key={idx}>
               <ActionButton 
                 name={el.name} 
                 text={el.text} 
