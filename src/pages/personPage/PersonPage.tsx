@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import cn from 'clsx';
 
 import Avatar from '../../components/Avatar'
 import PersonAction from './components/PersonAction'
@@ -7,19 +6,26 @@ import Name from './components/Name'
 import Info from './components/Info'
 import MenuButton from '../../components/MenuButton'
 
-import AvatarImage from '../../assets/avatar.jpg'
+import { users } from '../../mocks/users.json';
 
 import styles from './PersonPage.module.pcss';
 
 type ActionType = 'actions' | 'friends' | 'subscriptions';
 
+const MAPPED_HEADERS_TYPE_TO_HEADERS: { [key: string]: string } = {
+  city: 'Город',
+  about: 'О себе',
+  education: 'Образование',
+};
+
 const PersonPage = (): React.ReactElement => {
 
   const [contentType, setContentType] = useState<ActionType>('actions');
-  // localStorage.setItem('login', 'vasya');
-  // localStorage.setItem('password', '123456');
+
   const handleClickActionButton = (actionType: ActionType) => () => setContentType(actionType);
     
+  const person = users[1];
+
   const data = [
     {
       name: 'first',
@@ -43,7 +49,7 @@ const PersonPage = (): React.ReactElement => {
           <div className={styles.actions}>
               <div className={styles.actions__wrapper}>
                   <div className={styles.actions__avatar}>
-                      <Avatar src={AvatarImage} alt="avatar" />
+                      <Avatar src={person.avatar} alt="avatar" />
                   </div>
                   <div className={styles.actions__menu} >
                       <ul className={styles.actions__ul}>
@@ -70,13 +76,19 @@ const PersonPage = (): React.ReactElement => {
           <div className={styles.about}>
               <div className={styles.about__wrapper}>
                   <div className={styles.about__name}>
-                      <Name firstName={'Garfield'} secondName={'The Cat'} status={'Hate mondays'} />
+                      <Name 
+                        firstName={person.firstName} 
+                        secondName={person.secondName} 
+                        status={person.status} />
                       <hr />
                   </div>
                   <div className={styles.about__info}>
-                      <Info subject={'Город'} info={'Ижевск'}/>
-                      <Info subject={'Образование'} info={'УдГУ'}/>
-                      <Info subject={'О себе'} info={'Простой рыжий кот 🐈'}/>
+                    {person.headers.map((header: { name: string; text: string; }) =>
+                      <Info
+                        subject={MAPPED_HEADERS_TYPE_TO_HEADERS[header.name]}
+                        info={header.text}
+                      />
+                    )}
                   </div>
               </div>
           </div>

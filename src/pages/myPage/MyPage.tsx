@@ -1,7 +1,5 @@
 import React, {useState} from "react"
 
-import AvatarImage from '../../assets/myAvatar.jpg'
-
 import Avatar from '../../components/Avatar'
 import MyAction from './components/MyAction'
 import Name from './components/Name'
@@ -25,8 +23,8 @@ const MyPage = (): React.ReactElement => {
 
   const handleClickActionButton = (actionType: ActionType) =>
     () => setContentType(actionType);
-
-  const me = users[0];
+  
+  const me = users[localStorage.getItem("id")];
 
   const data = [
     {

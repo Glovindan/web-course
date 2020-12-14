@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Redirect, Route} from "react-router-dom";
 
 import Header from "../Header"
 import Footer from "../Footer";
+import CustomRoute from "../CustomRoute";
 import {
   MyPage,
   PersonPage,
@@ -17,11 +18,11 @@ import {
 import {ROUTES} from "../../constants";
 
 import styles from './App.module.pcss';
-import CustomRoute from "../CustomRoute";
 
 const App = (): React.ReactElement => {
 
   const isUserAuthorized = Boolean(localStorage.getItem('logged'));
+  const myPageRoute = Number(localStorage.getItem('id'));
 
   return (
     <div className={styles.wrapper}>
@@ -31,7 +32,7 @@ const App = (): React.ReactElement => {
           <CustomRoute
             isPublic={false}
             accessed={isUserAuthorized}
-            path={ROUTES.MY_PAGE}
+            path={"/id" + myPageRoute}
             component={MyPage}
           />
           <CustomRoute
