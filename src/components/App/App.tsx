@@ -6,42 +6,32 @@ import Header from "../Header"
 import Footer from "../Footer";
 import CustomRoute from "../CustomRoute";
 import {
-  MyPage,
-  PersonPage,
   LoginPage,
   ErrorPage,
   MessagesPage,
   DialogPage,
-  RegistrationPage
+  RegistrationPage,
+  CommonPage
 } from "../../pages";
 
 import {ROUTES} from "../../constants";
 
 import styles from './App.module.pcss';
 
+import '../../assets/avatar.jpg';
+import '../../assets/myAvatar.jpg';
+
 const App = (): React.ReactElement => {
 
-  const isUserAuthorized = Boolean(localStorage.getItem('logged'));
-  const myPageRoute = Number(localStorage.getItem('id'));
+  const user = localStorage.getItem('user');
+
+  const isUserAuthorized = Boolean(user);
 
   return (
     <div className={styles.wrapper}>
       <BrowserRouter>
-        <Header/>
+        <Header user={isUserAuthorized ? JSON.parse(user || '{}') : undefined}/>
         <Switch>
-          <CustomRoute
-            isPublic={false}
-            accessed={isUserAuthorized}
-            path={"/id" + myPageRoute}
-            component={MyPage}
-          />
-          <CustomRoute
-            isPublic={false}
-            accessed={isUserAuthorized}
-            exact={true}
-            path={ROUTES.MAIN_PAGE}
-            component={PersonPage}
-          />
           <CustomRoute
             isPublic={false}
             accessed={isUserAuthorized}
@@ -65,6 +55,12 @@ const App = (): React.ReactElement => {
             accessed={!isUserAuthorized}
             path={ROUTES.REGISTRATION_PAGE}
             component={RegistrationPage}
+          />
+          <CustomRoute
+            isPublic={false}
+            accessed={isUserAuthorized}
+            path={ROUTES.USER_PAGE}
+            component={CommonPage}
           />
           {!isUserAuthorized &&
             <Redirect

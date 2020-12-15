@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.login, .password {
+  margin: 10px auto;
+}
+
+.auth {
+  margin: 10px auto;
+  border-radius: 0 10px 0 10px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  background: white;
+
+  &:hover {
+    background: #f6f0ff;
+    cursor: pointer;
+  }
+
+  &:active {
+    background: #b29dcf;
+  }
+  
+}
+
+.inputLogin, .inputPassword {
+  border-radius: 0 10px 0 10px;
+  border: none;
+  text-align: center;
+}

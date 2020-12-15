@@ -12,19 +12,30 @@ import styles from "./MyPage.module.pcss"
 
 type ActionType = 'actions' | 'friends' | 'subscriptions';
 
+type MyPageProps = {
+  avatar: string;
+  firstName: string;
+  secondName: string;
+  status: string;
+  headers: {
+    name: string;
+    text: string;
+  }[]
+};
+
 const MAPPED_HEADERS_TYPE_TO_HEADERS: { [key: string]: string } = {
   city: 'Город',
   about: 'О себе',
   education: 'Образование',
 };
 
-const MyPage = (): React.ReactElement => {
+const MyPage = (props: MyPageProps): React.ReactElement | null => {
+  const { avatar, firstName, headers, secondName, status } = props;
+
   const [contentType, setContentType] = useState<ActionType>('actions');
 
   const handleClickActionButton = (actionType: ActionType) =>
     () => setContentType(actionType);
-  
-  const me = users[localStorage.getItem("id")];
 
   const data = [
     {
@@ -49,7 +60,7 @@ const MyPage = (): React.ReactElement => {
       <div className={styles.actions}>
         <div className={styles.actions__wrapper}>
           <div className={styles.actions__avatar}>
-            <Avatar src={me.avatar} alt="avatar"/>
+            <Avatar src={avatar} alt="avatar"/>
           </div>
           <div className={styles.actions__menu}>
             <ul className={styles.actions__ul}>
@@ -77,14 +88,14 @@ const MyPage = (): React.ReactElement => {
         <div className={styles.about__wrapper}>
           <div className={styles.about__name}>
             <Name
-              firstName={me.firstName}
-              secondName={me.secondName}
-              status={me.status}
+              firstName={firstName}
+              secondName={secondName}
+              status={status}
             />
             <hr/>
           </div>
           <div className={styles.about__info}>
-            {me.headers.map((header: { name: string; text: string; }) =>
+            {headers.map((header: { name: string; text: string; }) =>
               <MyInfo
                 subject={MAPPED_HEADERS_TYPE_TO_HEADERS[header.name]}
                 text={header.text}

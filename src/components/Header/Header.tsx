@@ -7,16 +7,22 @@ import Logo from '../../assets/apple.png';
 import Search from '../Search'
 
 import styles from './Header.module.pcss'
+import {ROUTES} from "../../constants";
 
+type HeaderProps = {
+  user?: {
+    id: string | null;
+  };
+}
 
-const Header = (): React.ReactElement => {
-  const contentType = localStorage.getItem('logged');
-  const myPageRoute = Number(localStorage.getItem('id'));
+const Header = (props: HeaderProps): React.ReactElement => {
+  const { user } = props;
+
+  const isLoggedIn = Boolean(user);
 
   const logout = () => {
-    localStorage.removeItem('logged');
-    localStorage.removeItem('login');
-    localStorage.removeItem('password');
+    localStorage.removeItem('user');
+
     window.location.href = '/login'
   };
 
@@ -33,15 +39,19 @@ const Header = (): React.ReactElement => {
         </div>
 
         <div>
-          {(contentType === 'logged') && <div className={styles.menu}>
-                                      <HeaderMenuButton className={styles.menuButton} href='#' onClick={logout} text="Logout"/>
-                                      <HeaderMenuButton className={styles.menuButton} href={"/id" + myPageRoute} text="MyPage"/>
-                                      </div>}
-          {contentType === null &&  <div className={styles.menu}>
-                                      <HeaderMenuButton className={styles.menuButton} href="/login" text="Login"/>
-                                      <HeaderMenuButton className={styles.menuButton} href="/registration" text="Registration"/>
-                                      <HeaderMenuButton className={styles.menuButton} href="/" text="Main"/>
-                                      </div>}
+          {isLoggedIn && (
+            <div className={styles.menu}>
+              <HeaderMenuButton className={styles.menuButton} href='#' onClick={logout} text="Logout"/>
+              {user && <HeaderMenuButton className={styles.menuButton} href={"/id" + user.id} text="MyPage"/>}
+            </div>
+          )}
+          {!isLoggedIn &&  (
+            <div className={styles.menu}>
+              <HeaderMenuButton className={styles.menuButton} href={ROUTES.LOGIN_PAGE} text="Login"/>
+              <HeaderMenuButton className={styles.menuButton} href={ROUTES.REGISTRATION_PAGE} text="Registration"/>
+              <HeaderMenuButton className={styles.menuButton} href={ROUTES.MAIN_PAGE} text="Main"/>
+            </div>
+          )}
         </div>
       </div>
       <hr/>

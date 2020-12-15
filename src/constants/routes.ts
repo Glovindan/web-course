@@ -4,6 +4,7 @@ const MY_PAGE = '/id0';
 const MESSAGES_PAGE = '/messages';
 const DIALOG_PAGE = '/dialog';
 const REGISTRATION_PAGE ='/registration';
+const USER_PAGE = '/:id';
 
 export const ROUTES = {
   MAIN_PAGE,
@@ -11,5 +12,6 @@ export const ROUTES = {
   MY_PAGE,
   MESSAGES_PAGE,
   DIALOG_PAGE,
-  REGISTRATION_PAGE
+  REGISTRATION_PAGE,
+  USER_PAGE
 };
