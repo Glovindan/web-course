@@ -24,29 +24,16 @@ const Form = (): React.ReactElement => {
     ev.stopPropagation();
 
     //Здесь должны быть запросы в бд
-    if(localStorage.getItem(login) ) {
-      var userData = localStorage.getItem(login);
+    if(login && password) {
+      const user = users.find((user: { login: string, id: number}) =>
+        user.login === login
+      );
 
-      let idNumber;
-      users.forEach((user: { login: string, id: number}) => {
-        if (user.login == login) {
-          idNumber = user.id
-        }
-      })
+      if (user) {
+        if (user.password === password) {
+          localStorage.setItem('user', JSON.stringify(user));
 
-      if (typeof userData === 'string') 
-        var userPassword = JSON.parse(userData).password; 
-      
-      if (userPassword === password) {
-        localStorage.setItem('logged', 'logged');
-        localStorage.setItem('login', login);
-        localStorage.setItem('password', password);
-
-        if (idNumber > -1) {
-          localStorage.setItem('id', idNumber);
-          window.location.href = '/id' + idNumber;
-        } else {
-          window.location.href = '/';
+          window.location.href = `/id${user.id}`;
         }
       }
     }
