@@ -37,8 +37,10 @@ const FormField = (props: FormFieldProps): React.ReactElement => {
         onFocus={handleFocus} 
         onBlur={handleBlur}
       />
-      <div className={cn(styles.placeholderWrapper, focused && styles.placeholderWrapperFocused)}>
-        <span>{placeholder}</span>
+      <div className={styles.wrapper}>
+        <div className={cn(styles.placeholderWrapper, focused && styles.placeholderWrapperFocused)}>
+          <span>{placeholder}</span>
+        </div>
       </div>
     </div>
   );
